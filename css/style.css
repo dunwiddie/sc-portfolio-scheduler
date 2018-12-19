@@ -1,5 +1,9 @@
 /* CORE STYLES */
 
+* {
+    border: 1px solid blue;
+}
+
 #root {
     /* Declare variables */
     --fontSans: 'Montserrat', sans-serif;
@@ -13,6 +17,11 @@
 nav {
     grid-area: navigation;
     background: red;
+}
+
+nav ul {
+    list-style-type: none;
+    padding-inline-start: 0;
 }
 
 header {

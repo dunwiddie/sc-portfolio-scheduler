@@ -1,3 +1,4 @@
+import $ from './src/$';
 import Content from './src/Content';
 import Footer from './src/Footer';
 import Header from './src/Header';
@@ -6,7 +7,7 @@ import Navigo from 'navigo';
 import Store from './src/Store';
 
 var router = new Navigo(window.location.origin);
-var root = document.querySelector('#root');
+var root = $('#root');
 
 var State = {
     'schedule': [],
