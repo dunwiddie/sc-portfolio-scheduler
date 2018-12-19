@@ -12,6 +12,7 @@
     "eslint": "^5.10.0"
   },
   "dependencies": {
+    "navigo": "^7.1.2",
     "parcel-bundler": "^1.11.0"
   }
 }

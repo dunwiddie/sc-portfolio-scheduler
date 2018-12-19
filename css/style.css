@@ -1,0 +1,103 @@
+/* CORE STYLES */
+
+#root {
+    /* Declare variables */
+    --fontSans: 'Montserrat', sans-serif;
+    --fontCursive: 'Sarina', cursive;
+    --fontMono: 'VT323', monospace;
+    min-height: 100vh;
+    /* Content */
+    font-family: var(--fontSans);
+}
+
+nav {
+    grid-area: navigation;
+    background: red;
+}
+
+header {
+    grid-area: header;
+    background-color: green;
+    font-family: var(--fontCursive);
+}
+
+section#content {
+    background-color: blue;
+    grid-area: content;
+}
+
+footer {
+    background-color: purple;
+    grid-area: footer;
+}
+
+/* MEDIA QUERIES */
+
+/* Phone */
+
+@media (max-width: 599px) {
+    #root {
+        /* Display and Grid */
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 5vh min-content 1fr 5vh;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas: "navigation" "header" "content" "footer";
+    }
+    #pushMenu {}
+}
+
+/* Tablet Portrait*/
+
+@media (min-width: 600px) {
+    #root {
+        /* grid-template-columns: auto auto;
+        grid-template-rows: min-content auto min-content;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas:
+            "navigation" "header"
+            "content" "content"
+            "footer" "footer"; */
+    }
+}
+
+/* Tablet Landscape */
+
+@media (min-width: 900px) {
+    #root {
+        /* grid-template-columns: auto auto auto;
+        grid-template-rows: min-content auto min-content;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas:
+            "navigation" "header" "header"
+            "content" "content" "content"
+            "footer" "footer" "footer"; */
+    }
+}
+
+/* Desktop */
+
+@media (min-width: 1200px) {
+    #root {
+        /* grid-template-columns: auto auto auto auto;
+        grid-template-rows: min-content min-content auto min-content;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas: "navigation" "header" "content" "footer"; */
+    }
+}
+
+/* Desktop Large */
+
+@media (min-width: 1800px) {
+    #root {
+        /* grid-template-columns: auto auto auto auto auto;
+        grid-template-rows: min-content min-content auto min-content;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas: "navigation" "header" "content" "footer"; */
+    }
+}
