@@ -1,11 +1,13 @@
 import $ from './src/$';
 import Content from './src/Content';
+import { adapter, db } from './src/db';
 import Footer from './src/Footer';
 import Header from './src/Header';
 import Navigation from './src/Navigation';
 import Navigo from 'navigo';
 import Store from './src/Store';
 
+// setup navigo
 var router = new Navigo(window.location.origin);
 var root = $('#root');
 
@@ -14,7 +16,7 @@ var State = {
     'active': 'home',
     'home': {
         'title': 'Home',
-        'links': ['about'],
+        'links': ['about', 'calendar'],
         'image': {
             'id': 'homeImage',
             'src': 'http://placekitten.com/300/200',
@@ -23,11 +25,20 @@ var State = {
     },
     'about': {
         'title': 'About',
-        'links': ['home'],
+        'links': ['home', 'calendar'],
         'image': {
             'id': 'aboutImage',
             'src': 'http://placekitten.com/200/150',
             'alt': 'about page image'
+        }
+    },
+    'calendar': {
+        'title': 'Calendar',
+        'links': ['home', 'about'],
+        'image': {
+            'id': 'calendarImage',
+            'src': 'http://placekitten.com/500/150',
+            'alt': 'calendar page image'
         }
     }
 };

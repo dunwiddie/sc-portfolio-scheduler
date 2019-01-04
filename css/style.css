@@ -14,10 +14,10 @@
     /* Display and Grid */
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 5vh min-content 1fr 5vh;
+    grid-template-rows: min-content 1fr 5vh;
     justify-items: stretch;
     align-items: stretch;
-    grid-template-areas: "navigation" "header" "content" "footer";
+    grid-template-areas: "header" "content" "footer";
     min-height: 100vh;
 }
 
@@ -27,7 +27,7 @@
     top: 0;
     left: -300px;
     height: 100vh;
-    width: 310px;
+    width: 300px;
     transition: all 0.33s ease;
 }
 
@@ -53,14 +53,18 @@ nav ul>li {
 
 nav i {
     position: absolute;
-    left: 310px;
-    top: 10px;
+    left: 300px;
     font-size: 2rem;
     transition: all .33s ease;
+    padding: 10px;
+    transition: background-color .33 ease;
+    background-color: rgba(255, 0, 0, 25%);
+    border-radius: 0 25% 25% 0;
 }
 
 nav i:hover {
     cursor: pointer;
+    background-color: red;
 }
 
 header {
