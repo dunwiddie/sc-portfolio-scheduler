@@ -1,12 +1,10 @@
 import { capitalize } from 'lodash';
 import * as Screens from "./Screens";
 
-export default function Content(state) {
+export default function Content(state, db) {
     return `
         <section id="content">
-            <div class="container">
-                <h2>${Screens[capitalize(state.active)](state)}</h2>
-            </div>
+            ${Screens[capitalize(state.active)](state, db)}
         </section>
     `;
 }

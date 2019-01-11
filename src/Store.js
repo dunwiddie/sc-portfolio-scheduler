@@ -1,16 +1,18 @@
 class Store {
     constructor(state) {
-        this.listener = () => { };
+        this.listeners = [];
         this.state = state;
     }
 
     dispatch(reducer) {
         this.state = reducer(this.state);
-        this.listener(this.state);
+        this.listeners.forEach(
+            (listener) => listener(this.state)
+        );
     }
 
     addListener(listener) {
-        this.listener = listener;
+        this.listeners.push(listener);
     }
 }
 

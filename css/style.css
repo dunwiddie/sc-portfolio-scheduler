@@ -9,6 +9,10 @@
     --fontSans: 'Montserrat', sans-serif;
     --fontCursive: 'Sarina', cursive;
     --fontMono: 'VT323', monospace;
+    --colorIndigo: #16425B;
+    --colorSlate: #305252;
+    --colorLtSlate: #77878B;
+    --colorOnyx: #373e40;
     /* Content */
     font-family: var(--fontSans);
     /* Display and Grid */
@@ -33,7 +37,7 @@
 
 #menu:hover {
     transform: translate(150px);
-    background-color: red;
+    background-color: var(--colorLtSlate);
 }
 
 nav ul {
@@ -58,29 +62,35 @@ nav i {
     transition: all .33s ease;
     padding: 10px;
     transition: background-color .33 ease;
-    background-color: rgba(255, 0, 0, 25%);
+    background-color: var(--colorLtSlate);
     border-radius: 0 25% 25% 0;
 }
 
 nav i:hover {
     cursor: pointer;
-    background-color: red;
+    background-color: var(--colorSlate);
 }
 
 header {
     grid-area: header;
-    background-color: green;
+    background-color: var(--colorOnyx);
     font-family: var(--fontCursive);
+    padding: 0 0 0 55px;
 }
 
 section#content {
-    background-color: blue;
+    background-color: whitesmoke;
     grid-area: content;
+    padding: 0 0 0 55px;
 }
 
 footer {
-    background-color: purple;
+    background-color: var(--colorIndigo);
     grid-area: footer;
+}
+
+#about img {
+    width: 100%;
 }
 
 /* MEDIA QUERIES */

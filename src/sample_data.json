@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Sample Event 1",
+        "start": "22 Jan 2019 12:00:00 CST",
+        "end": "22 Jan 2019 03:00:00 CST",
+        "isLocked": false,
+        "isShown": true,
+        "restrictStart": "22 Jan 2019 00:00:00 CST",
+        "restrictEnd": "22 Jan 2019 23:59:59 CST",
+        "minDuration": 60,
+        "maxDuration": 60
+    },
+    {
+        "id": 0,
+        "name": "Sample Unavailable",
+        "start": "22 Jan 2019 00:00:00 CST",
+        "end": "22 Jan 2019 06:00:00 CST",
+        "isLocked": true,
+        "isShown": false,
+        "restrictStart": "22 Jan 2019 00:00:00 CST",
+        "restrictEnd": "22 Jan 2019 06:00:00 CST",
+        "minDuration": 360,
+        "maxDuration": 360
+    }
+]

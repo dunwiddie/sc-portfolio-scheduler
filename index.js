@@ -1,22 +1,31 @@
-import $ from './src/$';
 import Content from './src/Content';
-import { adapter, db } from './src/db';
+// import db from './src/db';
 import Footer from './src/Footer';
 import Header from './src/Header';
+import low from 'lowdb';
+import LocalStorage from 'lowdb/adapters/LocalStorage'
 import Navigation from './src/Navigation';
 import Navigo from 'navigo';
 import Store from './src/Store';
+import CalEvent from './src/CalEvent';
 
 // setup navigo
-var router = new Navigo(window.location.origin);
-var root = $('#root');
+const router = new Navigo(window.location.origin);
+const root = document.querySelector('#root');
 
-var State = {
+// set up lowdb to store into 'db' at localStorage
+const adapter = new LocalStorage('db')
+const db = low(adapter)
+
+db.defaults({ schedule: [] }, { log: [] })
+    .write()
+
+const State = {
     'schedule': [],
     'active': 'home',
     'home': {
         'title': 'Home',
-        'links': ['about', 'calendar'],
+        'links': ['about', 'calendar', 'edit'],
         'image': {
             'id': 'homeImage',
             'src': 'http://placekitten.com/300/200',
@@ -25,7 +34,7 @@ var State = {
     },
     'about': {
         'title': 'About',
-        'links': ['home', 'calendar'],
+        'links': ['home', 'calendar', 'edit'],
         'image': {
             'id': 'aboutImage',
             'src': 'http://placekitten.com/200/150',
@@ -34,21 +43,37 @@ var State = {
     },
     'calendar': {
         'title': 'Calendar',
-        'links': ['home', 'about'],
+        'links': ['home', 'about', 'edit'],
         'image': {
             'id': 'calendarImage',
             'src': 'http://placekitten.com/500/150',
             'alt': 'calendar page image'
         }
+    },
+    'edit': {
+        'title': 'Edit',
+        'links': ['home', 'about', 'calendar'],
+        'image': {
+            'id': 'editImage',
+            'src': 'http://placekitten.com/50/50',
+            'alt': 'edit page image'
+        }
     }
 };
 
-var store = new Store(State);
+let newEvent = {
+    'id': 0,
+    'name': 'New Event',
+    'start': Date.now()
+};
+
+db.get('schedule').push(newEvent).write();
+
+const store = new Store(State);
 
 function handleNavigation(params) {
     store.dispatch((state) => {
         state.active = params.page;
-
         return state;
     });
 }
@@ -57,13 +82,11 @@ function render(state) {
     root.innerHTML = `
         ${Navigation(state)}
         ${Header(state)}
-        ${Content(state)}
+        ${Content(state, db)}
         ${Footer(state)}
     `;
     router.updatePageLinks();
-
-    console.log(`Active Page: ${state.active}`);
-    console.log(`Schedule: ${state.schedule}`);
+    state.schedule = db.get('schedule');
 }
 
 store.addListener(render);
