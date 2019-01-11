@@ -5,8 +5,7 @@ function makeEventCard(event) {
 }
 
 export default function Calendar(state, db) {
-    const localStorage = db.get('schedule').value();
-    console.log(localStorage);
+    const schedule = db.get('schedule').value();
 
     return `
         <p>Calendar Content</p>
