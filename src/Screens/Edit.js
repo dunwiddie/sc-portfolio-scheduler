@@ -1,5 +1,3 @@
-import { adapter, db } from '../db';
-
 function saveEvent(event) {
     console.log(`Saved ${event} to db`);
 };
