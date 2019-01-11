@@ -1,5 +1,4 @@
 import Content from './src/Content';
-// import db from './src/db';
 import Footer from './src/Footer';
 import Header from './src/Header';
 import low from 'lowdb';
