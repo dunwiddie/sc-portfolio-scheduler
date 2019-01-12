@@ -1,14 +1,27 @@
+import { html } from 'lit-html';
+
 function makeEventCard(event) {
-    return `
-        <div class="card">${event.id} ${event.name}</div>
+    return html`
+        <div class="card">${event.id} ${event.name}
+        <i class="fas fa-thumbtack"></i>
+        <i class="fas fa-lock"></i>
+        <i class="fas fa-unlock"></i>
+        <i class="fas fa-lock-open"></i>
+        </div>
     `;
 }
 
 export default function Calendar(state, db) {
     const schedule = db.get('schedule').value();
 
-    return `
+    return html`
         <p>Calendar Content</p>
-        <p>${schedule.map(makeEventCard).join('')}</p>
+        <div class="controls">
+            <i class="fas fa-dice"></i>
+            <i class="fas fa-ellipsis-v"></i>
+            <i class="fas fa-minus"></i>
+            <i class="fas fa-plus"></i>
+        </div>
+        <p>${schedule.map(makeEventCard)}</p>
     `;
 }

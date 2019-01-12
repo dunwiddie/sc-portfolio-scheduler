@@ -1,5 +1,7 @@
+import { html } from 'lit-html';
+
 export default function Footer(state) {
-    return `
+    return html`
         <footer>
             <p>Footer Paragraph</p>
         </footer>

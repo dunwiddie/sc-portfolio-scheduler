@@ -1,3 +1,5 @@
+import { html } from 'lit-html';
+
 function buildLink(link) {
     var href = '';
 
@@ -5,7 +7,7 @@ function buildLink(link) {
         href = link;
     }
 
-    return `
+    return html`
         <li>
             <a href="/${href}" data-navigo>${link}</a>
         </li>
@@ -13,11 +15,11 @@ function buildLink(link) {
 }
 
 export default function Navigation(state) {
-    return `
+    return html`
         <nav id="menu">
             <i class="fas fa-bars"></i>
             <ul class="container">
-                ${state[state.active].links.map(buildLink).join('')}
+                ${state[state.active].links.map(buildLink)}
             </ul>
         </nav>        
     `;

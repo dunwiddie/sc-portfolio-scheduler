@@ -93,6 +93,56 @@ footer {
     width: 100%;
 }
 
+#content {
+    display: flex;
+    align-content: flex-start;
+    justify-content: center;
+    flex-flow: wrap;
+}
+
+#content>p {
+    display: block;
+    width: 100%;
+}
+
+.card {
+    display: inline-block;
+    background: aqua;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 30px;
+    filter: opacity();
+    transition: all .33s linear;
+    box-shadow: 3px 3px red;
+    width: 33vw;
+}
+
+/* .card:hover {
+    background: blue;
+    visibility: visible;
+    box-shadow: 5px 5px green;
+    height: 200px;
+} */
+
+header {
+    padding-bottom: 10px;
+    display: flex;
+    flex-flow: row;
+}
+
+header h1 {
+    display: inline;
+}
+
+header img {
+    display: block;
+}
+
+footer p {
+    padding-top: 10px;
+    margin: 0px;
+}
+
 /* MEDIA QUERIES */
 
 /* Tablet Portrait*/

@@ -1,5 +1,7 @@
+import { html } from 'lit-html';
+
 export default function About(state, db) {
-    return `
+    return html`
         <div id="about">
             <img src="https://images.unsplash.com/photo-1502570149819-b2260483d302" alt="about scheduler">
             <h2>What?</h2>
@@ -10,6 +12,14 @@ export default function About(state, db) {
             <img src="https://images.unsplash.com/photo-1517148815978-75f6acaaf32c" alt="about computer">
             <h2>What?</h2>
             <p>JavaScript, HTML5, and CSS3. The “backend” is json, held in localStorage and managed by <a href="https://github.com/typicode/lowdb">lowdb</a>. Dependencies: Navigo, Parcel, ESLint, Prettier, Lodash, lowdb.</p>
+            <h2>Who?</h2>
+            <p>
+                <ul>
+                    <li><i class="fab fa-github-square"></i></li>
+                    <li><i class="fab fa-js-square"></i></li>
+                    <li><i class="fab fa-linkedin"></i></li>
+                </ul>
+            </p>
         </div>
     `;
 }

@@ -7,6 +7,7 @@ import Navigation from './src/Navigation';
 import Navigo from 'navigo';
 import Store from './src/Store';
 import CalEvent from './src/CalEvent';
+import { html, render } from 'lit-html';
 
 // setup navigo
 const router = new Navigo(window.location.origin);
@@ -77,18 +78,21 @@ function handleNavigation(params) {
     });
 }
 
-function render(state) {
-    root.innerHTML = `
+function App(state) {
+    return html`
         ${Navigation(state)}
         ${Header(state)}
         ${Content(state, db)}
         ${Footer(state)}
     `;
-    router.updatePageLinks();
-    state.schedule = db.get('schedule');
 }
 
-store.addListener(render);
+function start(state) {
+    render(App(state), root);
+}
+
+store.addListener(start);
+store.addListener(() => router.updatePageLinks());
 
 router
     .on('/:page', handleNavigation)
