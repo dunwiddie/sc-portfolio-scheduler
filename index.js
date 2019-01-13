@@ -8,6 +8,7 @@ import Navigo from 'navigo';
 import Store from './src/Store';
 import CalEvent from './src/CalEvent';
 import { html, render } from 'lit-html';
+import dateFns from 'date-fns';
 
 // setup navigo
 const router = new Navigo(window.location.origin);
@@ -17,7 +18,20 @@ const root = document.querySelector('#root');
 const adapter = new LocalStorage('db')
 const db = low(adapter)
 
-db.defaults({ schedule: [] }, { log: [] })
+db.defaults(
+    {
+        schedule: [
+            new CalEvent(0, "New Event"),
+            new CalEvent(1, "New Event"),
+            new CalEvent(2, "New Event"),
+            new CalEvent(3, "New Event")
+        ]
+    },
+    {
+        log: [
+
+        ]
+    })
     .write()
 
 const State = {
@@ -61,13 +75,7 @@ const State = {
     }
 };
 
-let newEvent = {
-    'id': 0,
-    'name': 'New Event',
-    'start': Date.now()
-};
-
-db.get('schedule').push(newEvent).write();
+// db.get('schedule').push(newEvent).write();
 
 const store = new Store(State);
 
