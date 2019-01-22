@@ -18,10 +18,10 @@
     /* Display and Grid */
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: min-content 1fr 5vh;
+    grid-template-rows: 1fr 5vh;
     justify-items: stretch;
     align-items: stretch;
-    grid-template-areas: "header" "content" "footer";
+    grid-template-areas: "content" "footer";
     min-height: 100vh;
 }
 
