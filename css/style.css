@@ -25,6 +25,12 @@
     min-height: 100vh;
 }
 
+/* Navigation */
+
+nav#menu {
+    z-index: 1;
+}
+
 #menu {
     grid-area: navigation;
     position: fixed;
@@ -71,29 +77,31 @@ nav i:hover {
     background-color: var(--colorSlate);
 }
 
+/* Header */
+
 header {
     grid-area: header;
     background-color: var(--colorOnyx);
     font-family: var(--fontCursive);
     padding: 0 0 0 55px;
+    display: flex;
+    flex-flow: row;
 }
+
+header h1 {
+    display: inline;
+}
+
+header img {
+    display: block;
+}
+
+/* Content - Main */
 
 section#content {
     background-color: whitesmoke;
     grid-area: content;
     padding: 0 0 0 55px;
-}
-
-footer {
-    background-color: var(--colorIndigo);
-    grid-area: footer;
-}
-
-#about img {
-    width: 100%;
-}
-
-#content {
     display: flex;
     align-content: flex-start;
     justify-content: center;
@@ -103,6 +111,66 @@ footer {
 #content>p {
     display: block;
     width: 100%;
+}
+
+/* Content - About */
+
+#bg1, #bg2, #bg3, #bg4 {
+    filter: blur(2px);
+    height: 200px;
+}
+
+#bg1 {
+    background-image: url('https://images.unsplash.com/photo-1502570149819-b2260483d302?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+}
+
+#bg2 {
+    background-image: url('https://images.unsplash.com/photo-1414919823178-e9d9d0afd0ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=944&q=80');
+}
+
+#bg3 {
+    background-image: url('https://images.unsplash.com/photo-1517148815978-75f6acaaf32c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+}
+
+#bg4 {
+    background-image: url('https://images.unsplash.com/photo-1508317469940-e3de49ba902e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+}
+
+/* Content - Calendar */
+
+div#eventList {
+    margin: 10px auto;
+    width: 80%;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button {
+    background: aqua;
+    border-radius: 10px;
+    box-shadow: 1px 1px red;
+    cursor: pointer;
+    border: solid aqua 1px;
+    transition: all .33s ease;
+    margin: 5px 5px;
+}
+
+button:hover {
+    background: teal;
+    box-shadow: 1px 1px green;
+    border: solid teal 1px;
+}
+
+.id {
+    display: none;
+}
+
+.name {
+    font-weight: bold;
 }
 
 .card {
@@ -117,25 +185,16 @@ footer {
     width: 33vw;
 }
 
-/* .card:hover {
-    background: blue;
-    visibility: visible;
+.card:hover {
+    background: teal;
     box-shadow: 5px 5px green;
-    height: 200px;
-} */
-
-header {
-    padding-bottom: 10px;
-    display: flex;
-    flex-flow: row;
 }
 
-header h1 {
-    display: inline;
-}
+/* Footer */
 
-header img {
-    display: block;
+footer {
+    background-color: var(--colorIndigo);
+    grid-area: footer;
 }
 
 footer p {

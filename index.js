@@ -21,10 +21,62 @@ const db = low(adapter)
 db.defaults(
     {
         schedule: [
-            new CalEvent(0, "New Event"),
-            new CalEvent(1, "New Event"),
-            new CalEvent(2, "New Event"),
-            new CalEvent(3, "New Event")
+            new CalEvent({
+                "id": 0,
+                "name": "Default Event: Demo Day",
+                "start": new Date("2019/1/22 15:00 CST"),
+                "end": new Date("2019/1/22 17:00 CST"),
+                "restrictStart": new Date("2019/1/22 15:00 CST"),
+                "restrictEnd": new Date("2019/1/22 17:00 CST"),
+                "isLocked": false,
+                "isHidden": false,
+                "minDuration": 0,
+                "maxDuration": 0,
+                "hasLinked": false,
+                "linkedEvents": []
+            }),
+            new CalEvent({
+                "id": 1,
+                "name": "Default Event: Valentine's Day",
+                "start": new Date("2019/2/14 00:00 CST"),
+                "end": new Date("2019/2/14 11:59 CST"),
+                "restrictStart": new Date("2019/2/14 00:00 CST"),
+                "restrictEnd": new Date("2019/2/14 11:59 CST"),
+                "isLocked": false,
+                "isHidden": false,
+                "minDuration": 0,
+                "maxDuration": 0,
+                "hasLinked": false,
+                "linkedEvents": []
+            }),
+            new CalEvent({
+                "id": 2,
+                "name": "Default Event: Valentine's Day Dinner",
+                "start": new Date("2019/2/14 17:00 CST"),
+                "end": new Date("2019/2/14 18:00 CST"),
+                "restrictStart": new Date("2019/2/14 17:00 CST"),
+                "restrictEnd": new Date("2019/2/14 20:59 CST"),
+                "isLocked": true,
+                "isHidden": false,
+                "minDuration": 60,
+                "maxDuration": 90,
+                "hasLinked": false,
+                "linkedEvents": []
+            }),
+            new CalEvent({
+                "id": 3,
+                "name": "Default Event: Demo Day After-Party",
+                "start": new Date("2019/1/22 18:00 CST"),
+                "end": new Date("2019/1/22 11:59 CST"),
+                "restrictStart": new Date("2019/1/22 17:00 CST"),
+                "restrictEnd": new Date("2019/1/22 11:59 CST"),
+                "isLocked": false,
+                "isHidden": false,
+                "minDuration": 60,
+                "maxDuration": 180,
+                "hasLinked": true,
+                "linkedEvents": [0]
+            })
         ]
     },
     {
@@ -106,3 +158,5 @@ router
     .on('/:page', handleNavigation)
     .on('/', () => handleNavigation({ 'page': 'home' }))
     .resolve();
+
+export { db };
