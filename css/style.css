@@ -59,6 +59,11 @@ nav ul>li {
     display: flex;
     justify-content: flex-end;
     padding: 5px 15px 5px 5px;
+    transition: all .33s ease;
+}
+
+nav ul>li:hover {
+    font-weight: bold;
 }
 
 nav i {
@@ -113,7 +118,31 @@ section#content {
 }
 
 .navOffset {
-    padding: 0 0 0 55px;
+    padding: 0 0 0 10vw;
+}
+
+/* Content - Home */
+
+#home {
+    display: block;
+    width: 85%;
+}
+
+#home .card {
+    display: inline-flex;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#home .card i {
+    padding: 0px 5px;
+}
+
+#home .card:hover {
+    background: whitesmoke;
+    font-weight: bold;
 }
 
 /* Content - About */
@@ -121,6 +150,15 @@ section#content {
 #bg1, #bg2, #bg3, #bg4 {
     filter: blur(2px);
     height: 200px;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    transition: all .33s ease;
+}
+
+#bg1:hover, #bg2:hover, #bg3:hover, #bg4:hover {
+    filter: blur(0px);
+    height: 250px;
 }
 
 #bg1 {
@@ -142,8 +180,11 @@ section#content {
 /* Content - Calendar */
 
 div#eventList {
-    margin: 10px auto;
+    margin: 0px;
     width: 80%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .controls {
@@ -153,19 +194,20 @@ div#eventList {
 }
 
 button {
-    background: aqua;
+    background: var(--colorLtSlate);
     border-radius: 10px;
-    box-shadow: 1px 1px red;
+    box-shadow: 1px 1px var(--colorSlate);
     cursor: pointer;
-    border: solid aqua 1px;
+    border: solid 1px var(--colorLtSlate);
     transition: all .33s ease;
+    padding: 5px 5px;
     margin: 5px 5px;
 }
 
 button:hover {
-    background: teal;
-    box-shadow: 1px 1px green;
-    border: solid teal 1px;
+    background: var(--colorSlate);
+    box-shadow: 1px 1px var(--colorIndigo);
+    border: solid 1px var(--colorSlate);
 }
 
 .id {
@@ -178,19 +220,19 @@ button:hover {
 
 .card {
     display: inline-block;
-    background: aqua;
+    background: var(--colorLtSlate);
     padding: 20px;
     margin: 10px;
     border-radius: 30px;
     filter: opacity();
     transition: all .33s linear;
-    box-shadow: 3px 3px red;
-    width: 33vw;
+    box-shadow: 3px 3px var(--colorSlate);
+    width: 100%;
 }
 
 .card:hover {
-    background: teal;
-    box-shadow: 5px 5px green;
+    background: var(--colorSlate);
+    box-shadow: 5px 5px var(--colorLtSlate);
 }
 
 /* Footer */

@@ -78,11 +78,9 @@ export default function Calendar(state, db) {
         let gap;
         let priorIndex = index - 1;
         if (priorIndex >= 0) {
-            console.log(`${index}: ${event.name}`);
             gap = dateFns.differenceInMinutes(schedule[priorIndex].end, schedule[index].start)
             cards.push(makeGapCard(schedule[priorIndex].end, schedule[index].start));
         } else {
-            console.log(`${index}: ${event.name}`);
             gap = 0;
         }
         cards.push(makeEventCard(event));
