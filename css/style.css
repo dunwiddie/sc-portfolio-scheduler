@@ -101,7 +101,6 @@ header img {
 section#content {
     background-color: whitesmoke;
     grid-area: content;
-    padding: 0 0 0 55px;
     display: flex;
     align-content: flex-start;
     justify-content: center;
@@ -111,6 +110,10 @@ section#content {
 #content>p {
     display: block;
     width: 100%;
+}
+
+.navOffset {
+    padding: 0 0 0 55px;
 }
 
 /* Content - About */
